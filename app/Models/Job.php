@@ -15,7 +15,7 @@ class Job extends Model
         'user_id', 'job_title', 'job_type_id', 'status', 'level_id',
         'job_description', 'responsibilities', 'requirements',
         'location', 'job_benefit', 'salary', 'posted_date', 'deadline',
-        'required_candidates', 'total_applied', 'industry_id'
+        'required_candidates', 'total_applied', 'position_id'
     ];
 
     public function user()
@@ -35,7 +35,7 @@ class Job extends Model
 
     public function industry()
     {
-        return $this->belongsTo(Industry::class, 'industry_id');
+        return $this->belongsTo(Job_Position::class, 'position_id');
     }
 
     public function applications()
