@@ -25,8 +25,6 @@ return new class extends Migration
             $table->date('founded_date')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('industry_id')->nullable();
-            $table->foreign('industry_id')->references('industry_id')->on('industries')->onDelete('cascade');
             $table->timestamps();
         });
     }

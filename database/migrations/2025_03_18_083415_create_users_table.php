@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('phone', 20);
             $table->date('date_of_birth')->nullable();
             $table->enum('gender', ['male', 'female', 'other'])->nullable();
-            $table->enum('role', ['recruiter', 'applicant']);
+            $table->string('image', 100);
+            $table->enum('role', ['recruiter', 'applicant', 'admin']);
             $table->timestamps();
         });
     }

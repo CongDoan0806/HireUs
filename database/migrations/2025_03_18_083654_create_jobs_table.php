@@ -33,8 +33,8 @@ return new class extends Migration
             $table->date('deadline');
             $table->integer('required_candidates')->default(1)->check('required_candidates >= 0');
             $table->integer('total_applied')->default(0)->check('total_applied >= 0');
-            $table->unsignedBigInteger('industry_id')->nullable();
-            $table->foreign('industry_id')->references('industry_id')->on('industries')->onDelete('cascade');
+            $table->unsignedBigInteger('position_id')->nullable();
+            $table->foreign('position_id')->references('position_id')->on('job_positions')->onDelete('cascade');
             $table->timestamps();
         });
     }
