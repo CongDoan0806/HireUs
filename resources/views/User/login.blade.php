@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/login.css">
     <title>Login</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
                 <p>By signing in, you agree to ITviec's <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a> in relation to your privacy information</p>
 
                 <button class="btn google-btn">
-                    <img src="/public/assets/images/Logo_Google.png" alt="Google Logo" width="20">
+                    <img src="/assets/images/logo/Logo_Google.png" alt="Google Logo" width="20">
                     Sign In with Google
                 </button>
 
