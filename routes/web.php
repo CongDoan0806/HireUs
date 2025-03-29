@@ -18,3 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/login', [UserController::class, 'login'])->name('login');
+// Xử lý đăng nhập
+Route::post('/login', [UserController::class, 'authenticate'])->name('login.submit');
+
+

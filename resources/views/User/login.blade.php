@@ -22,12 +22,13 @@
                     <span>or</span>
                 </div>
 
-                <form action="/login" method="POST">
+                <form action="{{ route('login.submit') }}" method="POST">
+                    @csrf
                     <div class="form-group">
-                        <input type="email" placeholder="Email" required>
+                        <input type="email" name="email" placeholder="Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" name="password" placeholder="Password" required>
                     </div>
                     <div class="forgot-password">
                         <a href="#">Forgot password?</a>
@@ -35,6 +36,15 @@
                     <button type="submit" class="btn">Sign In with Email</button>
                 </form>
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="text-center">
                     <p>Do not have an account? <a href="#">Sign up now!</a></p>
                 </div>
