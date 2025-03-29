@@ -13,17 +13,18 @@ class Company extends Model
 
     protected $fillable = [
         'company_name', 'logo', 'company_website', 'company_address',
-        'employee_count', 'comp_benefit', 'industry_id', 'founded_date',
+        'employee_count', 'comp_benefit', 'founded_date',
         'description', 'user_id'
     ];
-
-    public function industry()
-    {
-        return $this->belongsTo(Industry::class, 'industry_id');
-    }
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class, 'user_id', 'user_id');
+    }
+
 }
