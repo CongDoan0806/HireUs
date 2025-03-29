@@ -76,153 +76,23 @@
     <div class="employers-container">
         <h2 class="top-employers">Top Employers</h2>
         <div class="employers-grid">
-            <div class="employer-card">
-                <div class="logo">
-                    <img class="logo-employer" src="assets/images/companies/cmc_logo.png" alt="CMC logo">
+            @foreach ($companies as $company)
+                <div class="employer-card">
+                    <div class="logo">
+                        <img class="logo-employer" src="assets/images/companies/{{$company->logo}}" alt="Edulearn"></div>
+                    <h3 class="name-employer"><a href="">{{$company->company_name}}</a></h3>
+                    <div class="tags">
+                        <span class="tag-language">AI</span> 
+                        <span class="tag-language">Machine Learning</span> 
+                        <span class="tag-language">Python</span> 
+                        <span class="tag-language">Big Data</span>
+                        <span class="tag-language">React Native</span>
+                        <span class="tag-language">Laravel</span>
+                    </div>
+                    <p class="location-employer">{{ Str::limit($company->company_address, 25, '...') }}</p>
+                    <div class="jobs"><a href="">{{ $company->jobs_count }} Jobs</a></div>
                 </div>
-                <h3 class="name-employer"><a href="">CMC Global</a></h3>
-                <div class="tags">
-                    <span class="tag-language">Java</span>
-                    <span class="tag-language">JavaScript</span> 
-                    <span class="tag-language">Python</span> 
-                    <span class="tag-language">ReactJS</span>
-                    <span class="tag-language">Golang</span>
-                    <span class="tag-language">NodeJS</span>
-                </div>
-                <p class="location-employer">Ha Noi - Ho Chi Minh</p>
-                <div class="jobs"><a href="">29 Jobs</a></div>
-            </div>
-
-            <div class="employer-card">
-                <div class="logo">
-                    <img class="logo-employer" src="assets/images/companies/devplus_logo.png" alt="Devplus Company">
-                </div>
-                <h3 class="name-employer"><a href="">Devplus Company</a></h3>
-                <div class="tags">
-                    <span class="tag-language">NodeJS</span> 
-                    <span class="tag-language">Java</span> 
-                    <span class="tag-language">Cloud</span> 
-                    <span class="tag-language">Agile</span>
-                    <span class="tag-language">Python</span>
-                    <span class="tag-language">PHP</span>
-                    <span class="tag-language">ReactJS</span>
-                </div>
-                <p class="location-employer">Ha Noi - Ho Chi Minh</p>
-                <div class="jobs"><a href="">9 Jobs</a></div>
-            </div>
-
-            <div class="employer-card">
-                <div class="logo">
-                    <img class="logo-employer" src="assets/images/companies/edulearn_logo.png" alt="Edulearn"></div>
-                <h3 class="name-employer"><a href="">EduLearn</a></h3>
-                <div class="tags">
-                    <span class="tag-language">AI</span> 
-                    <span class="tag-language">Machine Learning</span> 
-                    <span class="tag-language">Python</span> 
-                    <span class="tag-language">Big Data</span>
-                    <span class="tag-language">React Native</span>
-                    <span class="tag-language">Laravel</span>
-                </div>
-                <p class="location-employer">Ha Noi - Ho Chi Minh</p>
-                <div class="jobs"><a href="">8 Jobs</a></div>
-            </div>
-
-            <div class="employer-card">
-                <div class="logo">
-                    <img class="logo-employer" src="assets/images/companies/pasona_tech_logo.png" alt="Pasona Tech Vietnam"></div>
-                <h3 class="name-employer"><a href="">Pasona Tech Vietnam</a></h3>
-                <div class="tags">
-                    <span class="tag-language">Backend</span> 
-                    <span class="tag-language">NodeJS</span> 
-                    <span class="tag-language">Java</span> 
-                    <span class="tag-language">DevOps</span>
-                    <span class="tag-language">Python</span>
-                    <span class="tag-language">ReactJS</span>
-                </div>
-                <p class="location-employer">Ho Chi Minh</p>
-                <div class="jobs"><a href="">6 Jobs</a></div>
-            </div>
-
-            <div class="employer-card">
-                <div class="logo"><img src="assets/images/companies/kozocom_logo.png" alt="Kozocom Software"></div>
-                <h3 class="name-employer"><a href="">Kozocom Software</a></h3>
-                <div class="tags">
-                    <span class="tag-language">Embedded</span> 
-                    <span class="tag-language">C</span> 
-                    <span class="tag-language">C++</span> 
-                    <span class="tag-language">Android</span>
-                    <span class="tag-language">Python</span>
-                    <span class="tag-language">NextJS</span>
-                    <span class="tag-language">Golang</span>
-                </div>
-                <p class="location-employer">Ha Noi</p>
-                <div class="jobs"><a href="">10 Jobs</a></div>
-            </div>
-
-            <div class="employer-card">
-                <div class="logo">
-                    <img class="logo-employer" src="assets/images/companies/finbank_logo.png" alt="Finbank"></div>
-                <h3 class="name-employer"><a href="">Finbank</a></h3>
-                <div class="tags">
-                    <span class="tag-language">Fullstack</span> 
-                    <span class="tag-language">ReactJS</span> 
-                    <span class="tag-language">NodeJS</span> 
-                    <span class="tag-language">Microservices</span>
-                    <span class="tag-language">Python</span>
-                    <span class="tag-language">NestJS</span>
-                </div>
-                <p class="location-employer">Ho Chi Minh</p>
-                <div class="jobs"><a href="">7 Jobs</a></div>
-            </div>
-
-            <div class="employer-card">
-                <div class="logo">
-                    <img class="logo-employer" src="assets/images/companies/fpt_logo.png" alt="FPT Software"></div>
-                <h3 class="name-employer"><a href="">FPT Software</a></h3>
-                <div class="tags">
-                    <span class="tag-language">Cloud</span> 
-                    <span class="tag-language">Azure</span> 
-                    <span class="tag-language">AI</span> 
-                    <span class="tag-language">Security</span>
-                    <span class="tag-language">Python</span>
-                    <span class="tag-language">C++</span>
-                    <span class="tag-language">Java</span>
-                </div>
-                <p class="location-employer">Ha Noi - Ho Chi Minh</p>
-                <div class="jobs"><a href="">12 Jobs</a></div>
-            </div>
-
-            <div class="employer-card">
-                <div class="logo">
-                    <img class="logo-employer" src="assets/images/companies/healthmed_logo.png" alt="Healthmed Company"></div>
-                <h3 class="name-employer"><a href="">Healthmed Company</a></h3>
-                <div class="tags">
-                    <span class="tag-language">Backend</span> 
-                    <span class="tag-language">Go</span> 
-                    <span class="tag-language">DevOps</span> 
-                    <span class="tag-language">Security</span>
-                    <span class="tag-language">Python</span>
-                    <span class="tag-language">React Native</span>
-                </div>
-                <p class="location-employer">Ho Chi Minh</p>
-                <div class="jobs"><a href="">9 Jobs</a></div>
-            </div>
-
-            <div class="employer-card">
-                <div class="logo">
-                    <img class="logo-employer" src="assets/images/companies/kms_logo.png" alt="KMS Software"></div>
-                <h3 class="name-employer"><a href="">KMS Technology</a></h3>
-                <div class="tags">
-                    <span class="tag-language">Cloud</span> 
-                    <span class="tag-language">AWS</span> 
-                    <span class="tag-language">Big Data</span> 
-                    <span class="tag-language">Python</span>
-                    <span class="tag-language">NextJS</span>
-                    <span class="tag-language">React Native</span>
-                </div>
-                <p class="location-employer">Ha Noi - Ho Chi Minh</p>
-                <div class="jobs"><a href="">11 Jobs</a></div>
-            </div>
+            @endforeach
         </div>
     </div>
 <!-- Get Hired -->

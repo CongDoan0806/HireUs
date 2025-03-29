@@ -2,7 +2,7 @@
     <div class="container">
         <div class="footer-grid">
             <!-- logo -->
-             <div class="logo">
+             <div class="footer-logo-left">
                 <a class="mb-3" href="#">
                     <img src="{{ asset('assets/images/logo/logo.png') }}" alt="logo-itviec" class="footer-logo-img">
                 </a>
