@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.content-header{
+    border-bottom: 1px solid var(--light-text);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5%;
+    background: linear-gradient(to right, var(--dark-gradient-start), var(--dark-gradient-end));
+    color: var(--light-text);
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo .logo-hireus {
+    height: 45px;
+    width: 45px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex: 1; 
+    margin-left: 50px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--lighter-text);
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.for-employers {
+    color: var(--white);
+    font-weight: bold;
+    font-size: 15px;
+    margin-right: 40px;
+}
+
+.nav-actions a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.nav-actions a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 3%;
+    }
+
+    .nav-menu {
+        gap: 15px;
+    }
+
+    .nav-actions {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .nav-menu,
+    .nav-actions {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a,
+    .nav-actions a,
+    .for-employers {
+        padding: 8px 0;
+    }
+}
