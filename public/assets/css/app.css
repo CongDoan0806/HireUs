@@ -1,0 +1,15 @@
+:root {
+    --primary-color: #d0293a;
+    --primary-dark: #b01e2d;
+    --secondary-color: #f6f5f4;
+    --dark-color: #1e1517;
+    --dark-gradient-start: #1e1517;
+    --dark-gradient-end: #521c24;
+    --text-color: #333;
+    --light-text: #666;
+    --white: #fff;
+    --success-color: #43a46e;
+    --border-color: #e5e5e5;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --lighter-text: rgb(143, 140, 140);
+}
