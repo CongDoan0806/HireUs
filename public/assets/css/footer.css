@@ -46,6 +46,7 @@ footer {
     font-weight: bold;
     font-size: 18px;
 }
+
 .footer-grid .footer-logo-left img{
     max-width: 180px;
     align-self: center;
@@ -59,6 +60,7 @@ footer {
 .copyright {
     color: rgba(255, 255, 255, 0.8);
 }
+
 .footer-logo-left .social-links a{
     background-color: rgb(83, 83, 83);
     width: 40px;
