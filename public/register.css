@@ -1,0 +1,142 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: while;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: auto;
+}
+
+.register-container {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+    width: 620px;
+    text-align: left;
+}
+
+.welcome-text {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.signup-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+label {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+button, .btn {
+    margin-top: 15px;
+}
+
+.google-signup {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    gap: 10px;
+}
+
+.google-signup img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.or-divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.or-divider .line {
+    flex: 1;
+    height: 1px;
+    background: #ccc;
+}
+
+.or-divider span {
+    margin: 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #777;
+}
+
+.input-group {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.input-group input {
+    width: 95%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.password-requirements {
+    font-size: 16px;
+    color: #777;
+    text-align: left;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.submit-btn {
+    background: #ff4d4f;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-btn:hover {
+    background: #e43d40;
+}
+
+.signin-text {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.link {
+    color: #ff4d4f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.terms-container {
+    /* display: flex; */
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa checkbox và văn bản */
+}
