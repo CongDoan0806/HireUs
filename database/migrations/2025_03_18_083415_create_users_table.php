@@ -18,11 +18,13 @@ return new class extends Migration
             $table->string('password', 60);
             $table->string('email', 100)->unique();
             $table->string('full_name', 100);
-            $table->string('phone', 20);
+            $table->string('phone', 20)->nullable();
             $table->date('date_of_birth')->nullable();
             $table->enum('gender', ['male', 'female', 'other'])->nullable();
-            $table->string('image', 100);
+            $table->string('image', 100)->nullable();
             $table->enum('role', ['recruiter', 'applicant', 'admin']);
+            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('verification_code', 4)->nullable();
             $table->timestamps();
         });
     }
