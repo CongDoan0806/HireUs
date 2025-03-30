@@ -1,18 +1,27 @@
 <div class="content-header">
     <nav class="navbar">
-        <div class="logo">
-            <img class="logo-hireus" src="assets/images/logo-removebg.png" alt="hireUs logo">
-        </div>
+        <span class="menu-toggle">&#9776;</span>
+        <div class="logo-menu">
+            <div class="logo">
+                <img class="logo-hireus" src="assets/images/logo/logo.png" alt="hireUs logo">
+            </div>
             <div class="nav-menu">
                 <a href="#">All Jobs</a>
                 <a href="#">IT Companies</a>
             </div>
-
+        </div>
+        <div class="nav-right">
+            <span class="for-employers">For Employers</span>
             <div class="nav-actions">
-                <span class="for-employers">For Employers</span>
                 <a href="#">Sign in</a>
-                <span>/</span>
+                <span style="color: white">/</span>
                 <a href="#">Sign up</a>
             </div>
+        </div>
     </nav>
+</div>
+<div class="mobile-menu-wrapper">
+    <a href="#">All Jobs</a>
+    <a href="#">IT Companies</a>
+    <span class="for-employers">For Employers</span>
 </div>
