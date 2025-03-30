@@ -1,1 +1,1 @@
-<h1>link script</h1>
+link<script src="assets/js/header.js"></script>
