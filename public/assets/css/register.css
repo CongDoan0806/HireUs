@@ -1,14 +1,18 @@
 body {
     font-family: "Arial", sans-serif;
-    background-color: while;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     margin: 0;
     overflow: auto;
 }
 
+.container-register-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px;
+}
 .register-container {
     background: white;
     padding: 10px;
@@ -22,6 +26,7 @@ body {
     font-size: 20px;
     color: #333;
     font-weight: bold;
+    display: flex;
 }
 
 .signup-title {
@@ -56,7 +61,7 @@ button, .btn {
 }
 
 .google-signup img {
-    width: 20px;
+    width: 45px;
     height: 20px;
     margin-right: 10px;
 }
@@ -139,4 +144,10 @@ button, .btn {
     /* display: flex; */
     align-items: center;
     gap: 10px; /* Khoảng cách giữa checkbox và văn bản */
+}
+
+.welcome-text .logo{
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
 }

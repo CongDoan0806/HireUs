@@ -3,7 +3,9 @@
         <span class="menu-toggle">&#9776;</span>
         <div class="logo-menu">
             <div class="logo">
-                <img class="logo-hireus" src="assets/images/logo/logo.png" alt="hireUs logo">
+                <a href="/">
+                    <img class="logo-hireus" src="assets/images/logo/logo.png" alt="hireUs logo">
+                </a>
             </div>
             <div class="nav-menu">
                 <a href="#">All Jobs</a>
@@ -13,9 +15,9 @@
         <div class="nav-right">
             <span class="for-employers">For Employers</span>
             <div class="nav-actions">
-                <a href="#">Sign in</a>
+                <a href="/login">Sign in</a>
                 <span style="color: white">/</span>
-                <a href="#">Sign up</a>
+                <a href="/register">Sign up</a>
             </div>
         </div>
     </nav>
