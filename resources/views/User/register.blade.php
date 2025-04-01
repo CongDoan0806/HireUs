@@ -38,8 +38,10 @@
                 </label>
             </div>
             <button class="google-signup" type="submit">
-                <img src="assets/images/logo/logo_Google.png" alt="Google" class="google-icon">
-                <span>Sign up with Google</span>
+                <a href="{{ route('google.login') }}">
+                    <img src="assets/images/logo/logo_Google.png" alt="Google" class="google-icon">
+                    <span>Sign up with Google</span>
+                </a>
             </button>
 
             <div class="or-divider">
@@ -103,7 +105,7 @@
             <button type="submit" class="submit-btn">Create Account</button>
 
             <p class="signin-text">Already have an account?
-                <a href="" class="link">Log in</a>
+                <a href="/login" class="link">Log in</a>
             </p>
         </form>
     </div>

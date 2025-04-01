@@ -6,11 +6,12 @@
             <div class="info-login">
                 <h2>Welcome to HireUs</h2>
                 <p>By signing in, you agree to ITviec's <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a> in relation to your privacy information</p>
-
-                <button class="btn google-btn">
-                    <img src="/assets/images/logo/Logo_Google.png" alt="Google Logo" width="20">
-                    Sign In with Google
-                </button>
+                <a href="{{ route('google.login') }}">
+                    <button class="btn google-btn">
+                        <img src="/assets/images/logo/Logo_Google.png" alt="Google Logo" width="20">
+                        Sign In with Google
+                    </button>
+                </a>
 
                 <div class="divider">
                     <span>or</span>
@@ -40,7 +41,7 @@
                     </div>
                 @endif
                 <div class="text-center">
-                    <p>Do not have an account? <a href="#">Sign up now!</a></p>
+                    <p>Do not have an account? <a href="/register">Sign up now!</a></p>
                 </div>
             </div>
 
