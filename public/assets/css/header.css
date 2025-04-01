@@ -8,10 +8,15 @@ body {
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 5%;
+    padding: 15px 5%;
     background: linear-gradient(to right, var(--dark-gradient-start), var(--dark-gradient-end));
 }
 
@@ -84,6 +89,101 @@ body {
 .nav-actions a:hover {
     text-decoration: underline;
 }
+
+.user_avatar{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.nav-actions p {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.nav-actions p:hover {
+    text-decoration: underline;
+}
+
+.nav-actions button {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-actions button:hover {
+    text-decoration: underline;
+}
+
+
+.nav-actions .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropdown-toggle {
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0;
+}
+
+.dropdown-toggle .arrow {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 5px;
+    transform: rotate(45deg);
+}
+
+.dropdown   .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #222222;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.dropdown-menu a,
+.dropdown-menu .logout-btn {
+    color: white;
+    padding: 15px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    margin: 0;
+    border-bottom: 1px solid var(--light-text);
+}
+
+.dropdown-menu i{
+    margin-right: 10px;
+}
+.dropdown-menu a:hover,
+.dropdown-menu .logout-btn:hover {
+    background-color: #333;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 
 /* Mobile menu */
 .mobile-menu-wrapper {

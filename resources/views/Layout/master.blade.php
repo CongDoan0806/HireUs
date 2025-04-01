@@ -6,27 +6,30 @@
     <title>Document</title>
 
   <!-- Link file CSS -->
-   <link rel="stylesheet" href="{{ asset('/register.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/homepage.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/globals.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/register.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
 
   <!-- Link icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
 
 
 </head>
 <body>
-    @include('User.header')
+    @include('Layout.header')
 
     @yield('content')
 
-    @include('User.footer')
+    @include('Layout.footer')
 
-    @include('User.script')
+    @include('Layout.script')
 </body>
 </html>

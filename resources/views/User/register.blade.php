@@ -1,11 +1,13 @@
-@extends('User.master')
+@extends('Layout.master')
 
 @section('title', 'Register Page')
 
 @section('content')
+<div class="container-register-box">
+
     <div class="register-container">
         <h3 class="welcome-text">Welcome to
-            <img src="{{ asset('images/logo.png') }}" alt="ITviec Logo" class="logo">
+            <img src="assets/images/logo/logo.png" alt="ITviec Logo" class="logo">
         </h3>
 
         <h1 class="signup-title">Sign up</h1>
@@ -36,8 +38,10 @@
                 </label>
             </div>
             <button class="google-signup" type="submit">
-                <img src="{{ asset('images/google.png') }}" alt="Google" class="google-icon">
-                <span>Sign up with Google</span>
+                <a href="{{ route('google.login') }}">
+                    <img src="assets/images/logo/logo_Google.png" alt="Google" class="google-icon">
+                    <span>Sign up with Google</span>
+                </a>
             </button>
 
             <div class="or-divider">
@@ -101,9 +105,10 @@
             <button type="submit" class="submit-btn">Create Account</button>
 
             <p class="signin-text">Already have an account?
-                <a href="" class="link">Log in</a>
+                <a href="/login" class="link">Log in</a>
             </p>
         </form>
     </div>
+</div>
 
 @endsection
