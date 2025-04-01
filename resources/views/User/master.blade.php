@@ -6,7 +6,7 @@
     <title>Document</title>
 
   <!-- Link file CSS -->
-   <link rel="stylesheet" href="{{ asset('register.css') }}">
+   <link rel="stylesheet" href="{{ asset('/register.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/homepage.css') }}">
