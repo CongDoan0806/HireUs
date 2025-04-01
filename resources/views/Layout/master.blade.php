@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/register.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/companyProfile.css') }}">
 
   <!-- Link icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
