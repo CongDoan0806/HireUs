@@ -205,8 +205,8 @@ body {
 }
 
 .logo img {
-    max-width: 60px;
-    max-height: 60px;
+    width: 70px;
+    height: 70px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Bóng mờ nhẹ */
     border-radius: 8px; /* Bo góc nhẹ để đẹp hơn */
 }

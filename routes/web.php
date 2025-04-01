@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
 
@@ -17,4 +16,11 @@ Route::post('/login', [UserController::class, 'authenticate'])->name('login.subm
 
 Route::get('/', [PageController::class, 'viewhomepage']);
 
+// xử lý đăng nhập bằng google
+
+Route::get('/auth/google', [UserController::class, 'loginGoogle'])->name('google.login');
+
+Route::get('/auth/google/callback', [UserController::class, 'handleGoogle']);
+
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 

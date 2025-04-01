@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\VerifyEmail;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Socialite\Facades\Socialite;
 
 class UserController extends Controller
 {
@@ -38,7 +39,7 @@ class UserController extends Controller
         // Kiểm tra thông tin đăng nhập
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
-            Session::put('user', $user);
+            Session::put('user', $user); // cái này không cần thiết nha. vì Auth::attempt tự động lưu id rồi :))
     
             if ($user->role == 'recruiter') {
                 session()->flash('message', 'Đăng nhập thành công!');
@@ -131,4 +132,41 @@ class UserController extends Controller
         return redirect()->route('login')->with('success', 'Email verified successfully!');
     }   
 
+    public function loginGoogle(){
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogle(){
+        /** @var \Laravel\Socialite\Two\GoogleProvider $driver */     // Đừng ai xóa cái này nha, lỗi đó :))))
+        $driver = Socialite::driver('google');
+
+
+        $googleUser = $driver->stateless()->user();
+
+        $user = User::where('email', $googleUser->getEmail())->first();
+
+
+        if (!$user) {
+            $user = User::create([
+                'full_name' => $googleUser->getName(),
+                'email' => $googleUser->getEmail(),
+                'google_id' => $googleUser->getId(),
+                'image' => $googleUser->getAvatar(),
+                'phone' => 'Not available',
+                'role' => 'applicant',
+                'password' => bcrypt(uniqid())
+            ]);
+        }
+        // Đăng nhập user vào hệ thống, cái này nó đã tự động lưu session r nha mấy đứa
+        Auth::login($user);
+
+        return redirect('/'); 
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate(); 
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 }
