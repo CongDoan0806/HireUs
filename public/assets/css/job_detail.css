@@ -1,0 +1,154 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Job Card */
+.job-card {
+    max-width: 700px;
+    background: white;
+    margin: 70px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.job-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.job-intro{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.job-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.company-name {
+    font-size: 18px;
+    color: #555;
+}
+
+.tagline {
+    font-style: italic;
+    color: #777;
+}
+
+.apply-btn {
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #d0021b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+.apply-btn:hover {
+    background-color: #b00118;
+}
+
+/* Job Info */
+.job-info {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.job-info-above {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.job-info p {
+    margin: 5px 0;
+}
+
+/* Sections */
+.section {
+    margin-top: 20px;
+}
+
+.section h2 {
+    font-size: 20px;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section li {
+    background: url('https://cdn-icons-png.flaticon.com/512/845/845646.png') left center no-repeat;
+    background-size: 16px;
+    padding-left: 25px;
+    margin: 10px 0;
+}
+
+/* Logo */
+.company-logo {
+    display: block;
+    padding: 10px;
+    margin-top: 10px;
+    width: 85px; /* Điều chỉnh kích thước theo ảnh */
+    height: 85px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Bóng mờ nhẹ */
+    border-radius: 5px;
+}
+
+/* Nút Ứng Tuyển + Trái tim */
+.apply-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px; /* Khoảng cách giữa nút và trái tim */
+    margin-top: 10px;
+}
+
+
+.apply-btn:hover {
+    background-color: #b00118;
+}
+
+/* Icon Trái tim */
+.heart-icon {
+    font-size: 28px;
+    color: #d0021b;
+    cursor: pointer;
+}
+
+.heart-icon:hover {
+    color: #b00118;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .job-card {
+        width: 90%;
+    }
+}
