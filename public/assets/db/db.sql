@@ -94,8 +94,10 @@ CREATE TABLE `applications` (
 CREATE TABLE `comments` (
   `comment_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `job_id` int(11) NOT NULL,
+  `job_id` int(11),
+  `company_id` int(11),
   `comment_content` text NOT NULL,
+  `rating` TINYINT(1) NOT NULL CHECK (`rating` BETWEEN 1 AND 5),
   PRIMARY KEY (`comment_id`)
 );
 

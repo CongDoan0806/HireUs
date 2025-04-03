@@ -38,9 +38,10 @@ body {
     align-items: center;
 }
 
-.logo img {
-    width: 40px;
+.logo .logo-hireus {
+    width: 100px !important;
     padding-top: 5px;
+    box-shadow: none !important;
 }
 
 .nav-menu {

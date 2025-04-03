@@ -367,13 +367,12 @@
 .review-date {
   font-size: 14px;
   color: var(--text-light-alt);
-  margin-bottom: 10px;
 }
 
 .review-title {
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .review-rating {
@@ -528,13 +527,14 @@
 
 .review-header{
     display: flex;
+    margin-bottom: 15px;
 }
 
 .review-header img{
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    margin-right: 50px;
+    margin-right: 30px;
 }
 .review-header .user-name{
     font-size: 20px;
@@ -554,7 +554,8 @@
 }
 
 .rating-stars i, .stars-large i, 
-.stars-container i, .rating-input i{
+.stars-container i, .rating-input i
+, .review-header i{
     color: yellow;
 }
 
@@ -577,3 +578,29 @@
     float: right;
     margin-top: 20px;
 }
+
+.rating {
+  margin-top: 10px;
+  direction: rtl; 
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+  transition: color 0.1s ease; 
+}
+
+.rating input:checked ~ label {
+  color: gold;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+  color: gold;
+}
+

@@ -4,7 +4,7 @@
         <div class="logo-menu">
             <div class="logo">
                 <a href="/">
-                    <img class="logo-hireus" src="assets/images/logo/logo.png" alt="hireUs logo">
+                    <img class="logo-hireus" src="{{ asset('assets/images/logo/logo.png') }}" alt="hireUs logo">
                 </a>
             </div>
             <div class="nav-menu">
