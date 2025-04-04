@@ -48,25 +48,31 @@
         <div class="tools">
             <!-- User Profile -->
             <div class="tool-card">
-                <img src="assets/images/userProfile.png" alt="User Profile">
-                <h3 class="title-card">User Profile</h3>
-                <p class="content-card">Create an excellent profile with a well-structured format and specific guide</p>
+                <div class="card-top">
+                    <img src="assets/images/userProfile.png" alt="User Profile">
+                    <h3 class="title-card">User Profile</h3>
+                    <p class="content-card">Create an excellent profile with a well-structured format and specific guide</p>
+                </div>
                 <button class="btn">Update profile</button>
             </div>
 
             <!-- Job Search -->
             <div class="tool-card">
-                <img src="assets/images/jobSearch.png" alt="Job Search">
-                <h3 class="title-card">Job Search</h3>
-                <p class="content-card">Find and apply for the best job opportunities that match your skills and interests</p>
+                <div class="card-top">
+                    <img src="assets/images/jobSearch.png" alt="Job Search">
+                    <h3 class="title-card">Job Search</h3>
+                    <p class="content-card">Find and apply for the best job opportunities that match your skills and interests</p>
+                </div>
                 <button class="btn">Find jobs</button>
             </div>
 
             <!-- Company List -->
             <div class="tool-card">
-                <img src="assets/images/companyList (1).png" alt="Company List">
-                <h3 class="title-card">Company List</h3>
-                <p class="content-card">Browse a list of top companies, explore their profiles, and find job opportunities</p>
+                <div class="card-top">
+                    <img src="assets/images/companyList (1).png" alt="Company List">
+                    <h3 class="title-card">Company List</h3>
+                    <p class="content-card">Browse a list of top companies, explore their profiles, and find job opportunities</p>
+                </div>
                 <button class="btn">View companies</button>
             </div>
         </div>
