@@ -84,19 +84,21 @@
         <div class="employers-grid">
             @foreach ($companies as $company)
                 <div class="employer-card">
-                    <div class="logo">
-                        <img class="logo-employer" src="assets/images/companies/{{$company->logo}}" alt="Edulearn"></div>
-                    <h3 class="name-employer"><a href="">{{$company->company_name}}</a></h3>
-                    <div class="tags">
-                        <span class="tag-language">AI</span> 
-                        <span class="tag-language">Machine Learning</span> 
-                        <span class="tag-language">Python</span> 
-                        <span class="tag-language">Big Data</span>
-                        <span class="tag-language">React Native</span>
-                        <span class="tag-language">Laravel</span>
-                    </div>
-                    <p class="location-employer">{{ Str::limit($company->company_address, 25, '...') }}</p>
-                    <div class="jobs"><a href="">{{ $company->jobs_count }} Jobs</a></div>
+                    <a href="company/{{$company->company_id}}">         
+                        <div class="logo">
+                            <img class="logo-employer" src="assets/images/companies/{{$company->logo}}" alt="{{$company->company_name}}"></div>
+                        <h3 class="name-employer"><a href="">{{$company->company_name}}</a></h3>
+                        <div class="tags">
+                            <span class="tag-language">AI</span> 
+                            <span class="tag-language">Machine Learning</span> 
+                            <span class="tag-language">Python</span> 
+                            <span class="tag-language">Big Data</span>
+                            <span class="tag-language">React Native</span>
+                            <span class="tag-language">Laravel</span>
+                        </div>
+                        <p class="location-employer">{{ Str::limit($company->company_address, 25, '...') }}</p>
+                        <div class="jobs"><a href="">{{ $company->jobs_count }} Jobs</a></div>
+                    </a>
                 </div>
             @endforeach
         </div>
