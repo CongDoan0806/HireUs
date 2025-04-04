@@ -26,4 +26,4 @@ Route::get('/auth/google/callback', [UserController::class, 'handleGoogle']);
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 // Xử lý job detail
-Route::get('/job_detail', [JobController::class, 'showJobDetail']);
+Route::get('/detail/{id}', [JobController::class, 'getJobDetail']);

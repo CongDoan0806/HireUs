@@ -52,12 +52,12 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--light-text);
+    color: #9a9393;
     font-size: 15px;
 }
 
 .nav-menu a:hover {
-    color: var(--primary-color);
+    color: var(--white);
 }
 
 .nav-right {
