@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\JobController;
 
 Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [UserController::class, 'register'])->name('register-post');
@@ -24,3 +25,5 @@ Route::get('/auth/google/callback', [UserController::class, 'handleGoogle']);
 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
+// Xử lý job detail
+Route::get('/detail/{id}', [JobController::class, 'getJobDetail']);

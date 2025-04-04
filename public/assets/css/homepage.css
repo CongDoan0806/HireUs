@@ -129,6 +129,10 @@ body {
     text-align: center;
 }
 
+.tool-card .card-top{
+    height: 160px;
+}
+
 .tool-card img {
     width: 50px;
     height: auto;
