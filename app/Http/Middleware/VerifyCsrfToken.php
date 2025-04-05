@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'feat/addComment', // Bỏ vào để khỏi bị chặn csrf 
     ];
 }

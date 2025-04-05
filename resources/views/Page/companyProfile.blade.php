@@ -171,30 +171,30 @@
         
         <div class="comp-comment">
             <div class="comp-cmt-form">
-                <input type="text" placeholder="Write a comment...">
+                <input id="comment-content" type="text" placeholder="Write a comment...">
                 <div class="rating">
-                  <input type="radio" id="star1" name="rating" value="1">
+                  <input type="radio" id="star1" name="rating" value="5">
                   <label for="star1"><i class="bi bi-star-fill"></i></label>
                   
-                  <input type="radio" id="star2" name="rating" value="2">
+                  <input type="radio" id="star2" name="rating" value="4">
                   <label for="star2"><i class="bi bi-star-fill"></i></label>
                   
                   <input type="radio" id="star3" name="rating" value="3">
                   <label for="star3"><i class="bi bi-star-fill"></i></label>
                   
-                  <input type="radio" id="star4" name="rating" value="4">
+                  <input type="radio" id="star4" name="rating" value="2">
                   <label for="star4"><i class="bi bi-star-fill"></i></label>
                   
-                  <input type="radio" id="star5" name="rating" value="5">
+                  <input type="radio" id="star5" name="rating" value="1">
                   <label for="star5"><i class="bi bi-star-fill"></i></label>
               </div>
-                <button id="submit-cmt" class="btn btn-primary">Submit</button>
+                <button id="submit-cmt" class="btn btn-primary" data-company-id="{{$company->company_id}}">Submit</button>
             </div>
-            <div class="comp-cmt-">
+            <div class="comp-cmt">
               @foreach($reviews as $review)
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="{{ Str::startsWith($review->user->image, 'http') ? $review->user->image : asset('assets/images/avatar/' . $review->user->image) }}" alt="Ảnh User" class="user-avatar">
+                        <img src="{{ Str::startsWith($review->user->image, 'http') ? $review->user->image : asset('assets/images/avatars/' . $review->user->image) }}" alt="Ảnh User" class="user-avatar">
                         <div>
                             <p class="user-name"><b>{{$review->user->full_name}}</b></p>
                             <p class="review-date">{{$review->created_at}}</p>

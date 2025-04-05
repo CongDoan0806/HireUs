@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\VerifyEmail;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
@@ -169,4 +170,32 @@ class UserController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
+    public function addComment(Request $request){
+        $request->validate([
+            'company_id' => 'required|exists:companies,company_id',
+            'content' => 'required|string',
+            'rating' => 'required|integer|min:1|max:5',
+        ]);
+        if (!auth()->user()) {
+            return response()->json(['message' => 'User not authenticated'], 401);
+        }
+        $comment = new Comment();
+        $comment->company_id = $request->company_id;
+        $comment->user_id = auth()->id();
+        $comment->comment_content = $request->content;
+        $comment->rating = $request->rating;
+        $comment->created_at = now();
+        $comment->save();
+
+        return response()->json([
+            'comment' => [
+                'user_name' => auth()->user()->full_name,
+                'user_image' => auth()->user()->image ? auth()->user()->image : asset('assets/images/avatars/avatar_default.png'),
+                'created_at' => $comment->created_at->format('Y-m-d H:i:s'),
+                'comment_content' => $comment->comment_content,
+                'rating' => $comment->rating,
+            ]
+        ]);
+    }
+
 }

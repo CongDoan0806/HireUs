@@ -21,7 +21,7 @@
                 @endphp
             
                 <img class="user_avatar" 
-                    src="{{ Str::startsWith($avatarPath, 'http') ? $avatarPath : asset('storage/avatars/' . $avatarPath) }}" 
+                    src="{{ Str::startsWith($avatarPath, 'http') ? $avatarPath : asset('assets/images/avatars/' . $avatarPath) }}" 
                     alt="User Avatar">
                     <div class="dropdown">
                         <button class="dropdown-toggle">
