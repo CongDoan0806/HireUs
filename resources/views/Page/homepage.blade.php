@@ -48,25 +48,31 @@
         <div class="tools">
             <!-- User Profile -->
             <div class="tool-card">
-                <img src="assets/images/userProfile.png" alt="User Profile">
-                <h3 class="title-card">User Profile</h3>
-                <p class="content-card">Create an excellent profile with a well-structured format and specific guide</p>
+                <div class="card-top">
+                    <img src="assets/images/userProfile.png" alt="User Profile">
+                    <h3 class="title-card">User Profile</h3>
+                    <p class="content-card">Create an excellent profile with a well-structured format and specific guide</p>
+                </div>
                 <button class="btn">Update profile</button>
             </div>
 
             <!-- Job Search -->
             <div class="tool-card">
-                <img src="assets/images/jobSearch.png" alt="Job Search">
-                <h3 class="title-card">Job Search</h3>
-                <p class="content-card">Find and apply for the best job opportunities that match your skills and interests</p>
+                <div class="card-top">
+                    <img src="assets/images/jobSearch.png" alt="Job Search">
+                    <h3 class="title-card">Job Search</h3>
+                    <p class="content-card">Find and apply for the best job opportunities that match your skills and interests</p>
+                </div>
                 <button class="btn">Find jobs</button>
             </div>
 
             <!-- Company List -->
             <div class="tool-card">
-                <img src="assets/images/companyList (1).png" alt="Company List">
-                <h3 class="title-card">Company List</h3>
-                <p class="content-card">Browse a list of top companies, explore their profiles, and find job opportunities</p>
+                <div class="card-top">
+                    <img src="assets/images/companyList (1).png" alt="Company List">
+                    <h3 class="title-card">Company List</h3>
+                    <p class="content-card">Browse a list of top companies, explore their profiles, and find job opportunities</p>
+                </div>
                 <button class="btn">View companies</button>
             </div>
         </div>
@@ -78,19 +84,21 @@
         <div class="employers-grid">
             @foreach ($companies as $company)
                 <div class="employer-card">
-                    <div class="logo">
-                        <img class="logo-employer" src="assets/images/companies/{{$company->logo}}" alt="Edulearn"></div>
-                    <h3 class="name-employer"><a href="">{{$company->company_name}}</a></h3>
-                    <div class="tags">
-                        <span class="tag-language">AI</span> 
-                        <span class="tag-language">Machine Learning</span> 
-                        <span class="tag-language">Python</span> 
-                        <span class="tag-language">Big Data</span>
-                        <span class="tag-language">React Native</span>
-                        <span class="tag-language">Laravel</span>
-                    </div>
-                    <p class="location-employer">{{ Str::limit($company->company_address, 25, '...') }}</p>
-                    <div class="jobs"><a href="">{{ $company->jobs_count }} Jobs</a></div>
+                    <a href="company/{{$company->company_id}}">         
+                        <div class="logo">
+                            <img class="logo-employer" src="assets/images/companies/{{$company->logo}}" alt="{{$company->company_name}}"></div>
+                        <h3 class="name-employer"><a href="">{{$company->company_name}}</a></h3>
+                        <div class="tags">
+                            <span class="tag-language">AI</span> 
+                            <span class="tag-language">Machine Learning</span> 
+                            <span class="tag-language">Python</span> 
+                            <span class="tag-language">Big Data</span>
+                            <span class="tag-language">React Native</span>
+                            <span class="tag-language">Laravel</span>
+                        </div>
+                        <p class="location-employer">{{ Str::limit($company->company_address, 25, '...') }}</p>
+                        <div class="jobs"><a href="">{{ $company->jobs_count }} Jobs</a></div>
+                    </a>
                 </div>
             @endforeach
         </div>

@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('job_types', function (Blueprint $table) {
-            $table->id('job_type_id');
-            $table->enum('job_type_name', ['Fulltime', 'Parttime', 'Remote', 'Internship', 'Contract'])->default('Fulltime');
+        Schema::create('job_benefits', function (Blueprint $table) {
+            $table->id('benefit_id');
+            $table->unsignedBigInteger('job_id');
+            $table->text('benefit');
+            $table->foreign('job_id')->references('job_id')->on('jobs')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_types');
+        Schema::dropIfExists('job_benefits');
     }
 };

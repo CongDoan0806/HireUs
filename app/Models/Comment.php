@@ -11,7 +11,7 @@ class Comment extends Model
     protected $table = 'comments';
     protected $primaryKey = 'comment_id';
 
-    protected $fillable = ['user_id', 'job_id', 'comment_content'];
+    protected $fillable = ['user_id', 'job_id', 'company_id', 'comment_content', 'rating'];
 
     public function user()
     {
@@ -21,6 +21,10 @@ class Comment extends Model
     public function job()
     {
         return $this->belongsTo(Job::class, 'job_id');
+    }
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }
 
