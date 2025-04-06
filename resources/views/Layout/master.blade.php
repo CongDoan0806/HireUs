@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/register.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/company.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/companyProfile.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/job_detail.css') }}">
 

@@ -13,6 +13,10 @@ class PageController extends Controller
         return view('Page.homepage', compact('companies'));
     }
 
+    public function viewcompany() {
+        $companies = Company::all();
+        return view('Page.company', compact('companies')); 
+
     public function viewCompany($id){
         $company = Company::find($id);
         if (!$company) {
