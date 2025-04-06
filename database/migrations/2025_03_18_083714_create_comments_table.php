@@ -17,9 +17,17 @@ return new class extends Migration
             $table->id('comment_id');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+    
             $table->unsignedBigInteger('job_id')->nullable();
             $table->foreign('job_id')->references('job_id')->on('jobs')->onDelete('cascade');
+    
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+    
             $table->text('comment_content');
+    
+            $table->tinyInteger('rating')->nullable()->default(1)->comment('Rating from 1 to 5');
+    
             $table->timestamps();
         });
     }

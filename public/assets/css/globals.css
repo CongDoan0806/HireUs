@@ -11,7 +11,14 @@
     --success-color: #43a46e;
     --border-color: #e5e5e5;
     --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+    --alt-primary-color: #db2a39; 
+    --alt-secondary-color: #35aa38; 
+    --dark-bg: #241719; 
+    --light-bg: #f8f8f8; 
+    --alt-border-color: #e0e0e0; 
+    --text-light-alt: #666;
+    --star-color: #ef952b; 
+  }
 
 * {
     margin: 0;

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,11 +13,12 @@ class Job extends Model
     protected $primaryKey = 'job_id';
 
     protected $fillable = [
-        'user_id', 'job_title', 'job_type_id', 'status', 'level_id',
-        'job_description', 'responsibilities', 'requirements',
-        'location', 'job_benefit', 'salary', 'posted_date', 'deadline',
+        'user_id', 'company_id', 'job_title', 'job_type_id', 'status', 'level_id',
+        'job_description', 'location', 'salary', 'posted_date', 'deadline',
         'required_candidates', 'total_applied', 'position_id'
     ];
+
+    // Relationships
 
     public function user()
     {
@@ -38,6 +40,11 @@ class Job extends Model
         return $this->belongsTo(Job_Position::class, 'position_id');
     }
 
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'company_id');
+    }
+
     public function applications()
     {
         return $this->hasMany(Application::class, 'job_id');
@@ -47,5 +54,21 @@ class Job extends Model
     {
         return $this->hasMany(Comment::class, 'job_id');
     }
+
+    public function responsibilities()
+    {
+        return $this->hasMany(JobResponsibility::class, 'job_id');
+    }
+
+    public function requirements()
+    {
+        return $this->hasMany(JobRequirement::class, 'job_id');
+    }
+
+    public function benefits()
+    {
+        return $this->hasMany(JobBenefit::class, 'job_id');
+    }
 }
+
 

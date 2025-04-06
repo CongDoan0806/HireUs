@@ -38,9 +38,10 @@ body {
     align-items: center;
 }
 
-.logo img {
-    width: 40px;
+.logo .logo-hireus {
+    width: 100px !important;
     padding-top: 5px;
+    box-shadow: none !important;
 }
 
 .nav-menu {
@@ -52,12 +53,12 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--light-text);
+    color: #9a9393;
     font-size: 15px;
 }
 
 .nav-menu a:hover {
-    color: var(--primary-color);
+    color: var(--white);
 }
 
 .nav-right {
