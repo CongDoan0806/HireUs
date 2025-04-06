@@ -12,6 +12,8 @@ use App\Mail\VerifyEmail;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
+use App\Jobs\ExpireVerificationCode;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -22,7 +24,6 @@ class UserController extends Controller
     // Xử lý đăng nhập
     public function authenticate(Request $request)
     {
-        
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -35,11 +36,17 @@ class UserController extends Controller
                 'email' => 'Email chưa được đăng ký. Vui lòng đăng ký tài khoản.',
             ]);
         }
-
+    
+        // Kiểm tra email đã được xác thực hay chưa
+        if (!$user->is_verified) {
+            return back()->withErrors([
+                'email' => 'Email của bạn chưa được xác thực. Vui lòng kiểm tra email và xác thực tài khoản.',
+            ]);
+        }
+    
         // Kiểm tra thông tin đăng nhập
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
-            Session::put('user', $user); // cái này không cần thiết nha. vì Auth::attempt tự động lưu id rồi :))
     
             if ($user->role == 'recruiter') {
                 session()->flash('message', 'Đăng nhập thành công!');
@@ -57,7 +64,7 @@ class UserController extends Controller
             'password' => 'Mật khẩu không đúng, vui lòng thử lại.',
         ]);
     }
-
+    
     public function showRegistrationForm()
     {
         return view('User.register');
@@ -89,7 +96,9 @@ class UserController extends Controller
         ], $messages);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
+            return response()->json([
+                'errors' => $validator->errors()
+            ], 422);
         }
 
         $verification_code = str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT);
@@ -101,42 +110,115 @@ class UserController extends Controller
             'role' => $request->role,
             'verification_code' => $verification_code,
             'is_verified' => false,
+            'sent_at' => now(),
         ]);
+        
+        // Gửi mã xác thực qua email
+        Mail::to($user->email)->send(new \App\Mail\VerifyEmail($user, $verification_code));
 
-        Mail::to($request->email)->send(new VerifyEmail($verification_code));
+        // Tạo job để hết hạn mã sau 1 phút
+        dispatch(new ExpireVerificationCode($user->user_id))->delay(now()->addMinutes(1));
 
-        return redirect()->route('verify.form', ['email' => $request->email])
-            ->with('success', 'A verification code has been sent to your email. Please check your inbox.');
+        return view('services.auth.verify')->with('message', 'Mã xác thực đã được gửi tới email của bạn. Vui lòng kiểm tra hộp thư.');
     }
 
     public function showVerificationForm(Request $request)
     {
-        return view('services.auth.verify', ['email' => $request->email]);
+        return view('services.auth.verify');
     }
 
     public function verifyCode(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email|exists:users,email',
-            'verification_code' => 'required|digits:4',
+        // Kiểm tra dữ liệu đầu vào
+        $validator = Validator::make($request->all(), [
+            'verification_code' => 'required|numeric|digits:4',
         ]);
-
-        $user = User::where('email', $request->email)->where('verification_code', $request->verification_code)->first();
+    
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors()
+            ], 422);
+        }
+    
+        // Truy vấn người dùng có mã xác thực tương ứng
+        $user = User::where('verification_code', $request->verification_code)->first();
+    
+        if (!$user) {
+            return response()->json([
+                'errors' => ['verification_code' => ['Mã xác thực không đúng.']]
+            ], 422);
+        }
+    
+        // Kiểm tra xem mã có hết hạn (1 phút) hay không
+        $sentAt = $user->sent_at;
+        $expiryTime = Carbon::now()->diffInSeconds($sentAt);
+    
+        if ($expiryTime > 60) {
+            return response()->json([
+                'error' => 'Mã xác thực đã hết hạn. Vui lòng yêu cầu mã mới.'
+            ], 400);
+        }
+    
+        // Cập nhật trạng thái xác thực
+        $user->update(['is_verified' => true]);
+    
+        return response()->json([
+            'message' => 'Xác thực thành công. Bạn có thể đăng nhập.',
+            'redirect_url' => route('login')
+        ]);
+    }
+    
+    // Phương thức gửi lại mã xác thực
+    public function resendVerificationCode(Request $request)
+    {
+        // Kiểm tra nếu người dùng đã đăng ký
+        $user = User::where('email', $request->email)->first();
 
         if (!$user) {
-            return back()->withErrors(['verification_code' => 'Invalid verification code.']);
+            return response()->json([
+                'error' => 'Email không tồn tại.'
+            ], 404);
         }
 
-        $user->update(['verification_code' => null]);
+        // Kiểm tra xem mã xác thực trước đó có hết hạn chưa
+        $expiryTime = Carbon::now()->diffInSeconds($user->sent_at);
 
-        return redirect()->route('login')->with('success', 'Email verified successfully!');
-    }   
+        if ($expiryTime < 60) {
+            return response()->json([
+                'error' => 'Mã xác thực vẫn còn hiệu lực.'
+            ], 400);
+        }
 
-    public function loginGoogle(){
+        // Tạo mã xác thực mới
+        $verification_code = str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT);
+
+        // Cập nhật mã xác thực mới và thời gian gửi
+        $user->update([
+            'verification_code' => $verification_code,
+            'sent_at' => now(),
+        ]);
+
+        try {
+            // Gửi lại mã xác thực qua email
+            Mail::to($user->email)->send(new \App\Mail\VerifyEmail($user, $verification_code));
+        } catch (\Exception $e) {
+            Log::error("Email sending failed: " . $e->getMessage());
+            return response()->json(['error' => 'Đã xảy ra lỗi khi gửi email. Vui lòng thử lại.'], 500);
+        }
+
+        // Trả về thông báo
+        return response()->json([
+            'message' => 'Mã xác thực mới đã được gửi. Vui lòng kiểm tra email của bạn.'
+        ]);
+    }
+
+    public function loginGoogle()
+    {
         return Socialite::driver('google')->redirect();
     }
 
-    public function handleGoogle(){
+    public function handleGoogle()
+    {
         /** @var \Laravel\Socialite\Two\GoogleProvider $driver */     // Đừng ai xóa cái này nha, lỗi đó :))))
         $driver = Socialite::driver('google');
 
@@ -160,12 +242,13 @@ class UserController extends Controller
         // Đăng nhập user vào hệ thống, cái này nó đã tự động lưu session r nha mấy đứa
         Auth::login($user);
 
-        return redirect('/'); 
+        return redirect('/');
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
-        $request->session()->invalidate(); 
+        $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
     }

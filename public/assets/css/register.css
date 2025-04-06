@@ -4,7 +4,7 @@ body {
     overflow: auto;
 }
 
-.container-register-box{
+.container-register-box {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -14,11 +14,33 @@ body {
     margin: 20px;
     margin-top: 100px;
 }
-.register-container {
-    background: white;
+#role {
+    width: 100%;
     padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Khi focus vào dropdown */
+#role:focus {
+    border-color: #000000;
+    outline: none;
+}
+
+/* Kiểu cho các option */
+#role option {
+    font-size: 16px;
+    background: white;
+    color: black;
+}
+
+.register-container {
+    padding: 0px;
     border-radius: 8px;
-    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
     width: 620px;
     text-align: left;
 }
@@ -36,14 +58,22 @@ body {
     font-weight: bold;
 }
 
-label {
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input {
     font-size: 18px;
     color: black;
-    margin-bottom: 20px;
+    width: 37px;
+    height: 37px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 button, .btn {
-    /* margin-top: 15px; */
+    margin-top: 15px;
 }
 
 .google-signup {
@@ -61,10 +91,33 @@ button, .btn {
     gap: 10px;
 }
 
+
+
+.google-signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.google-signup:hover {
+    background-color: #f0f0f0;
+}
+
 .google-signup img {
-    width: 45px;
     height: 20px;
-    margin-right: 10px;
+    width: auto;  
+    display: inline-block;
+    object-fit: contain;
+}
+
+.google-signup span {
+    display: inline-block;
+    line-height: 20px;
 }
 
 .or-divider {
@@ -87,12 +140,14 @@ button, .btn {
 }
 
 .input-group {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    /* Reduced margin for better spacing */
     text-align: left;
 }
 
 .input-group input {
-    width: 95%;
+    width: 100%;
+    /* Changed to 100% for consistency */
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -120,9 +175,6 @@ button, .btn {
     font-weight: bold;
     transition: 0.3s;
     text-align: center;
-    display: block;
-    justify-content: center;
-    align-items: center;
 }
 
 .submit-btn:hover {
@@ -136,19 +188,64 @@ button, .btn {
 }
 
 .link {
-    color: #ff4d4f;
+    color: #366aec;
     text-decoration: none;
     font-weight: bold;
 }
 
 .terms-container {
-    /* display: flex; */
+    display: flex;
     align-items: center;
-    gap: 10px; /* Khoảng cách giữa checkbox và văn bản */
+}
+label {
+    font-weight: bold;
 }
 
-.welcome-text .logo{
+label::after {
+    content: "*";
+    color: red;
+    margin-left: 5px;
+}
+
+.terms-container input {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.welcome-text .logo {
     width: 25px;
     height: 25px;
     margin-left: 10px;
 }
+
+.password-requirements li {
+    color: gray; /* Ban đầu là màu xám */
+    transition: color 0.3s ease-in-out; /* Hiệu ứng mượt */
+}
+
+.password-requirements li.valid {
+    color: green; /* Đúng thì xanh */
+}
+
+.password-requirements li.invalid {
+    color: red; /* Sai thì đỏ */
+}
+
+/* 
+.submit-btn {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+} */
+
+/* input#terms:checked ~ .submit-btn {
+    background-color: red;
+    cursor: pointer;
+} */

@@ -10,17 +10,21 @@ class VerifyEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $code;
+    public $user;
+    public $verification_code;  // use a lowercase property name
 
-    public function __construct($code)
+    public function __construct($user, $verification_code)
     {
-        $this->code = $code;
+        $this->user = $user;  // assign to the correct property
+        $this->verification_code = $verification_code;  // assign to the correct property
     }
 
     public function build()
     {
-        return $this->subject('Email Verification Code')
-                    ->view('emails.verify')
-                    ->with(['code' => $this->code]);
+        return $this->view('services.emails.verification_code')
+            ->with([
+                'user' => $this->user,  
+                'verification_code' => $this->verification_code,  // pass the correct property
+            ]);
     }
 }
