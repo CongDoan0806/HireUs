@@ -36,5 +36,7 @@
     @include('Layout.footer')
 
     @include('Layout.script')
+
+    @stack('scripts')
 </body>
 </html>

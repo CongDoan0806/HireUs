@@ -24,8 +24,12 @@ return new class extends Migration
             $table->string('image', 100)->nullable();
             $table->enum('role', ['recruiter', 'applicant', 'admin']);
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->string('verification_code', 4)->nullable();
-            $table->timestamps();
+
+            $table->string('verification_code', 4)->nullable();  
+            $table->timestamp('sent_at')->nullable();  
+            $table->boolean('is_verified')->default(false);  
+
+            $table->timestamps(); 
         });
     }
 
