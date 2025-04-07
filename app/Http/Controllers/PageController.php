@@ -16,8 +16,8 @@ class PageController extends Controller
     public function viewcompany() {
         $companies = Company::all();
         return view('Page.company', compact('companies')); 
-
-    public function viewCompany($id){
+    }
+    public function viewCompanyProfile($id){
         $company = Company::find($id);
         if (!$company) {
             return response()->json(['message' => 'Company not found'], 404); 

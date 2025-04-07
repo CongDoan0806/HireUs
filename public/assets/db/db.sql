@@ -6,11 +6,14 @@ CREATE TABLE `users` (
   `password` varchar(60) NOT NULL,
   `email` varchar(100) NOT NULL,
   `full_name` varchar(100) NOT NULL,
-  `phone` varchar(20) NOT NULL,
+  `phone` varchar(20) NULL,
   `date_of_birth` date DEFAULT NULL,
   `gender` enum('male','female','other') DEFAULT NULL,
   `image` varchar(100),
   `role` enum('recruiter','applicant', 'admin') NOT NULL,
+  `verification_code` VARCHAR(4) NULL,
+  `sent_at` TIMESTAMP NULL,
+  `is_verified` BOOLEAN NOT NULL DEFAULT FALSE
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email` (`email`)
 );
